@@ -1,0 +1,14 @@
+img {
+	width: 7%;
+	padding: 20px 91.5px;
+}
+
+h1 {
+	padding: 0 10px;
+}
+
+.fries, .yellow, .blue, .cluster, .swarm {
+	width: 400%;
+	position: absolute;
+	left: 30%;
+}
