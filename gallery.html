@@ -1,0 +1,135 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Art Gallery</title>
+<script src="library.js"></script>
+<script language="JavaScript">
+	let arr = [];
+
+	let art1 = new Object();
+	art1.name = "Fries";
+	art1.price = "$800";
+	art1.pic = "Fries.jpg";
+	arr.push(art1);
+
+	let art2 = new Object();
+	art2.name = "Swarm";
+	art2.price = "$1000";
+	art2.pic = "The_Swarm.jpeg";
+	arr.push(art2);
+
+	let art3 = new Object();
+	art3.name = "Blue";
+	art3.price = "$800";
+	art3.pic = "Blue_Plant.jpg";
+	arr.push(art3);
+
+	let art4 = new Object();
+	art4.name = "Yellow";
+	art4.price = "$750";
+	art4.pic = "Add_Yellow.jpg";
+	arr.push(art4);
+
+	let art5 = new Object();
+	art5.name = "Cluster";
+	art5.price = "$800";
+	art5.pic = "Cluster.jpg";
+	arr.push(art5);
+
+	//display thumbnails and title
+	function displayImages()
+	{
+		document.write("<h1>B.D. Graft Art Gallery</h1>");
+		for (i=0;i<arr.length;i++)
+		{
+			document.write("<img src='" + arr[i].pic + "' id='" + arr[i].name + "'>");
+		}
+	};
+
+	displayImages();
+
+	$(document).ready(function()
+	{
+		//hide all large images
+		$('.fries').hide();
+		$('.swarm').hide();
+		$('.blue').hide();
+		$('.yellow').hide();
+		$('.cluster').hide();
+
+		//on click
+		//couldn't get this to work, tried to find a way to display a block of text
+		//over the image, but don't think I understand jquery enough to do it with that
+		$("img").click(function()
+		{
+			 var i = ($(this).index()) - 1;
+			 $('.infotext').text(arr[i].name + ", " + arr[i].price).hide(5000);
+		});
+
+		//fries hover
+		$('#Fries').mouseenter(function()
+		{
+			$('.fries').fadeIn(300);
+		});
+		$('#Fries').mouseleave(function() {
+			$('.fries').hide();
+		});
+
+		//swarm hover
+		$('#Swarm').mouseenter(function()
+		{
+			$('.swarm').fadeIn(300);
+		});
+		$('#Swarm').mouseleave(function() {
+			$('.swarm').hide();
+		});
+
+		//blue hover
+		$('#Blue').mouseenter(function()
+		{
+			$('.blue').fadeIn(300);
+		});
+		$('#Blue').mouseleave(function() {
+			$('.blue').hide();
+		});
+
+		//yellow hover
+		$('#Yellow').mouseenter(function()
+		{
+			$('.yellow').fadeIn(300);
+		});
+		$('#Yellow').mouseleave(function() {
+			$('.yellow').hide();
+		});
+
+		//cluster hover
+		$('#Cluster').mouseenter(function()
+		{
+			$('.cluster').fadeIn(300);
+		});
+		$('#Cluster').mouseleave(function() {
+			$('.cluster').hide();
+		});
+	});
+
+</script>
+</head>
+<body>
+	<div class="infotext"> </div>
+	<div class = "fries">
+		<img src = "Fries.jpg" />
+	</div>
+	<div class = "swarm">
+		<img src = "The_Swarm.jpeg" />
+	</div>
+	<div class = "blue">
+		<img src = "Blue_Plant.jpg" />
+	</div>
+	<div class = "yellow">
+		<img src = "Add_Yellow.jpg" />
+	</div>
+	<div class = "cluster">
+		<img src = "Cluster.jpg" />
+	</div>
+</body>
+</html>
